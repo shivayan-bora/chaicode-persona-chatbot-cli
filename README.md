@@ -150,6 +150,16 @@ business logic services mein, database models mein. Clean architecture ka concep
 Remember - code aise likho ki team mein koi bhi easily samajh sake!
 ```
 
+### Screenshots:
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ae6287f5-d13f-459a-a1f4-767ea85493bf" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1e160d6c-185e-400f-a4b6-1b549a527255" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5a1a52fb-160e-4e84-b93f-648fad157003" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bcc41f07-4aec-4850-b8de-75c6acc482f2" />
+
+
 ## 🛠️ Development
 
 ### Prerequisites
