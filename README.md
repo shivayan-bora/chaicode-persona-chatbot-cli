@@ -2,7 +2,8 @@
 
 > 🚀 A CLI chatbot application featuring persona-based interactions with ChaiCode instructors Hitesh Choudhary and Piyush Garg
 
-[![npm version](https://badge.fury.io/js/chaicode-persona-chatbot-cli.svg)](https://badge.fury.io/js/chaicode-persona-chatbot-cli)
+[![npm version](https://img.shields.io/npm/v/chaicode-persona-chatbot-cli.svg)](https://www.npmjs.com/package/chaicode-persona-chatbot-cli)
+[![npm downloads](https://img.shields.io/npm/dm/chaicode-persona-chatbot-cli.svg)](https://www.npmjs.com/package/chaicode-persona-chatbot-cli)
 [![Node.js](https://img.shields.io/badge/node-%3E%3D16-brightgreen.svg)](https://nodejs.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -15,6 +16,12 @@
 - 📱 **Interactive CLI**: Fullscreen terminal interface with easy navigation
 - 🎨 **Multiple Model Support**: Choose from GPT-4.1, GPT-4.1 mini, GPT-4.1 nano, and GPT-5
 - 🔄 **Session Management**: Start new conversations, switch personas, and access help commands
+
+## 📦 Package Information
+
+**✅ Available on npm**: [chaicode-persona-chatbot-cli](https://www.npmjs.com/package/chaicode-persona-chatbot-cli)
+
+The package is published and ready to install! Use the installation commands below.
 
 ## 🚀 Quick Start
 
