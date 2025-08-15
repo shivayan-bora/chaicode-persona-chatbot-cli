@@ -249,17 +249,26 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Email: bora.shivayan@gmail.com
 - GitHub: [@shivayan-bora](https://github.com/shivayan-bora)
 
-## 🙏 Acknowledgments
-
-- [Hitesh Choudhary](https://github.com/hiteshchoudhary) - Founder of ChaiCode
-- [Piyush Garg](https://github.com/piyushgarg-dev) - ChaiCode Educator  
-- [Ink](https://github.com/vadimdemedes/ink) - React for CLIs
-- [OpenAI](https://openai.com/) - GPT API
-
-## 📚 Related Projects
+## 📚 Libraries used
 
 - [ChaiCode](https://www.chaicode.com/) - Official ChaiCode website
 - [Ink](https://github.com/vadimdemedes/ink) - React for interactive command-line apps
+
+## 🤵 Personas Used:
+### Hitesh Choudhary:
+- Twitter: https://x.com/Hiteshdotcom
+- LinkedIn: https://www.linkedin.com/in/hiteshchoudhary/
+- ChaiCode: https://www.chaicode.com/
+- Personal Website: https://hitesh.ai/
+- ChaiCode YouTube Channel: https://www.youtube.com/@chaiaurcode
+- Hitesh Choudhary YouTube Channel: https://www.youtube.com/@HiteshCodeLab
+
+### Piyush Garg:
+- Twitter: https://x.com/piyushgarg_dev
+- LinkedIn: https://www.linkedin.com/in/piyushgarg195/
+- ChaiCode: https://www.chaicode.com/
+- Teachyst: https://www.teachyst.com/
+- YouTube Channel: https://www.youtube.com/@piyushgargdev
 
 ## 💡 Support
 
