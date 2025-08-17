@@ -24,6 +24,7 @@ export default function App() {
 	const [messages, setMessages] = useState<Message[]>([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [showHelp, setShowHelp] = useState(false);
+	const [streamingContent, setStreamingContent] = useState<string>('');
 	
 	// Services
 	const [openAIService, setOpenAIService] = useState<OpenAIService | null>(null);
@@ -158,8 +159,10 @@ export default function App() {
 		};
 		setMessages(prev => [...prev, userMessage]);
 
-		// Send to OpenAI
+		// Send to OpenAI with streaming
 		setIsLoading(true);
+		setStreamingContent('');
+		
 		try {
 			// Prepare messages for OpenAI
 			const openAIMessages = [
@@ -173,17 +176,34 @@ export default function App() {
 				{role: 'user' as const, content: input},
 			];
 
-
-			const response = await openAIService.sendMessage(openAIMessages);
-			
-			// Add assistant response
+			// Create placeholder for streaming response
 			const assistantMessage: Message = {
 				id: (Date.now() + 1).toString(),
 				role: 'assistant',
-				content: response,
+				content: '',
 				timestamp: new Date(),
+				isStreaming: true,
 			};
 			setMessages(prev => [...prev, assistantMessage]);
+
+			// Stream the response
+			let fullResponse = '';
+			const stream = openAIService.sendMessageStream(openAIMessages);
+			
+			for await (const chunk of stream) {
+				fullResponse += chunk;
+				setStreamingContent(fullResponse);
+			}
+
+			// Update the message with the complete response
+			setMessages(prev => 
+				prev.map(msg => 
+					msg.id === assistantMessage.id 
+						? { ...msg, content: fullResponse, isStreaming: false }
+						: msg
+				)
+			);
+			setStreamingContent('');
 		} catch (error) {
 			// Add error message
 			const errorMessage: Message = {
@@ -195,6 +215,7 @@ export default function App() {
 			setMessages(prev => [...prev, errorMessage]);
 		} finally {
 			setIsLoading(false);
+			setStreamingContent('');
 		}
 	};
 
@@ -235,6 +256,7 @@ export default function App() {
 								messages={messages}
 								isLoading={isLoading}
 								persona={selectedPersona}
+								streamingContent={streamingContent}
 							/>
 						</Box>
 						<InputArea onSubmit={handleUserInput} isLoading={isLoading} />

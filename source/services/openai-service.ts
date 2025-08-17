@@ -49,4 +49,30 @@ export class OpenAIService {
 			throw new Error('Unknown error occurred');
 		}
 	}
+
+	async *sendMessageStream(
+		messages: Array<{role: 'system' | 'user' | 'assistant'; content: string}>,
+	): AsyncGenerator<string, void, unknown> {
+		try {
+			const stream = await this.client.chat.completions.create({
+				model: this.mapModelName(this.currentModel),
+				messages,
+				temperature: 0.7,
+				max_tokens: 1000,
+				stream: true,
+			});
+
+			for await (const chunk of stream) {
+				const content = chunk.choices[0]?.delta?.content;
+				if (content) {
+					yield content;
+				}
+			}
+		} catch (error) {
+			if (error instanceof Error) {
+				throw new Error(`OpenAI API error: ${error.message}`);
+			}
+			throw new Error('Unknown error occurred');
+		}
+	}
 }

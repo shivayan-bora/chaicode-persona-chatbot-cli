@@ -1,23 +1,27 @@
 import React from 'react';
 import {Box, Text} from 'ink';
+import Spinner from 'ink-spinner';
 
 export interface Message {
 	id: string;
 	role: 'user' | 'assistant' | 'system';
 	content: string;
 	timestamp: Date;
+	isStreaming?: boolean;
 }
 
 interface ConversationAreaProps {
 	messages: Message[];
 	isLoading?: boolean;
 	persona?: string;
+	streamingContent?: string;
 }
 
 export default function ConversationArea({
 	messages,
 	isLoading,
 	persona,
+	streamingContent,
 }: ConversationAreaProps) {
 	const getPersonaName = (persona: string | undefined) => {
 		if (!persona) return 'Assistant';
@@ -52,7 +56,9 @@ export default function ConversationArea({
 									<Text bold color="cyan">
 										{getPersonaName(persona)}:{' '}
 									</Text>
-									{message.content}
+									{message.isStreaming && streamingContent !== undefined 
+										? streamingContent 
+										: message.content}
 								</Text>
 							) : (
 								<Text dimColor italic>
@@ -61,9 +67,10 @@ export default function ConversationArea({
 							)}
 						</Box>
 					))}
-					{isLoading && (
+					{isLoading && !streamingContent && (
 						<Box>
-							<Text color="yellow">
+							<Text color="cyan">
+								<Spinner type="dots" />{' '}
 								{getPersonaName(persona)} is thinking...
 							</Text>
 						</Box>
