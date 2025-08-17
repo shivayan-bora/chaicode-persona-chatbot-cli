@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {Box, useApp} from 'ink';
+
+// Utility function for delays
+const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 import Header from './components/header.js';
 import ApiKeyInput from './components/api-key-input.js';
 import ModelSelectionPanel from './components/model-selection-panel.js';
@@ -186,13 +189,15 @@ export default function App() {
 			};
 			setMessages(prev => [...prev, assistantMessage]);
 
-			// Stream the response
+			// Stream the response with typing delay
 			let fullResponse = '';
 			const stream = openAIService.sendMessageStream(openAIMessages);
 			
 			for await (const chunk of stream) {
 				fullResponse += chunk;
 				setStreamingContent(fullResponse);
+				// Add a small delay to simulate typing
+				await delay(40);
 			}
 
 			// Update the message with the complete response

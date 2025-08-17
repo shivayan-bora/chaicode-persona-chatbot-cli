@@ -1,6 +1,6 @@
 {
 	"name": "chaicode-persona-chatbot-cli",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "A CLI chatbot application featuring persona-based interactions with ChaiCode instructors Hitesh Choudhary and Piyush Garg",
 	"license": "MIT",
 	"author": {
